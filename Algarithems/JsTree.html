@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Javascript Tree Structure
+    </title>
+    <script>
+        // Function to create a new node
+        function createNode(data) {
+            return {
+                data: data,
+                next: null
+            };
+        }
+
+        // Linked List objectq
+        let LinkedList = {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+            head: null,
+            size: 0,
+
+            // Method to add a node to the front of the list
+            add: function (data) {
+                // Create a new node
+                let newNode = createNode(data);
+
+                // If the list is empty, set the new node as the head
+                if (this.size === 0) {
+                    this.head = newNode;
+                } else {
+                    // If not empty, link the new node's next to the current head
+                    newNode.next = this.head;
+                    // Update the head to be the new node
+                    this.head = newNode;
+                }
+
+                // Increase the size of the list
+                this.size++;
+
+                // Print the current state of the list
+                console.log(JSON.stringify(this, null, 2));
+            }
+        };
+
+        // Add nodes to the linked list
+        LinkedList.add(10); // Adds 10 as the head node
+        LinkedList.add(20); // Adds 20 in front of 10, making it the new head
+        LinkedList.add(30); // Adds 30 in front of 20
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

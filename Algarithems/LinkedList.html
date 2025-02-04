@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo</title>
+    <!-- <script>
+
+        class Node {
+            constructor(data) {
+                this.data = data;
+                this.next = null;
+            }
+        }
+
+
+        class LinkedList {
+            constructor() {
+                this.head = null
+                this.size = 0
+            }
+
+            isEmpty() {
+                return this.size === 0
+            }
+
+            getSize() {
+                return this.size
+            }
+
+            prepend(value) {
+                const node = new Node(value)
+                console.log(node)
+                if (this.head===null) {
+                    this.head = node
+                } else {
+                    node.next = this.head
+                    this.head = node
+                }
+                this.size++
+            }
+        }
+
+        const ll = new LinkedList()
+
+        // console.log(ll.isEmpty())
+        // console.log(ll.getSize())
+        // ll.prepend(10)
+        // ll.prepend(20)
+        // ll.prepend(30)
+        // console.log(ll)
+
+    </script> -->
+    <script>
+        class Node {
+            constructor(value) {
+                this.data = value
+                this.next = null
+            }
+        }
+
+
+        class LinkedList {
+            constructor() {
+                this.head = null
+            }
+            //O(1) constent time it is not depending on input value it is best 
+            //it take same time 
+            prepend(data) {
+                let node = new Node(data)
+
+                if (this.head == null) {
+                    this.head = node
+                }
+                else {
+                    node.next = this.head
+                    this.head = node
+                }
+
+            }
+
+            //O(n) it is depending on input value it take more time 
+            //complexcity
+            append(value) {
+
+                const node = new Node(value)
+
+                if (this.head == null) {
+                    this.head = node
+                }
+                else {
+                    let pre = this.head  //10
+                    console.log(pre.next)
+                    while (pre.next) {
+                        console.log(pre.next)
+                        pre = pre.next
+                    }
+                    pre.next = node
+                }
+
+            }
+        }
+
+        const Linked = new LinkedList()
+        // console.log(Linked)
+        Linked.append(10)
+        Linked.append(20)
+        Linked.append(30)
+        // Linked.append(40)
+        // console.log(Linked)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

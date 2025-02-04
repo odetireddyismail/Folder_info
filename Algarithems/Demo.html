@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo</title>
+    <script>
+        let animal = {
+            jumps: null
+        };
+        let rabbit = {
+            __proto__: animal,
+            jumps: true
+        };
+
+        // alert(rabbit.jumps); // ? (1)
+
+        // delete rabbit.jumps;
+
+        // alert(rabbit.jumps); // ? (2)
+
+        // delete animal.jumps;
+
+        // alert(rabbit.jumps); // ? (3)
+        console.log(rabbit) // true (from rabbit)
+    </script>
+</head>
+</html>

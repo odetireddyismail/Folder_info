@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo</title>
+    <script>
+
+        class Node {
+            constructor(data) {
+                this.data = data;
+                this.tail = null;
+                this.next = null;
+            }
+        }
+
+
+        class LinkedList {
+            constructor() {
+                this.head = null
+                this.size = 0
+            }
+
+            isEmpty() {
+                return this.size === 0
+            }
+
+            getSize() {
+                return this.size
+            }
+            print() {
+                if (this.isEmpty()) {
+                    console.log('THis List is Empty')
+                }
+                else {
+                    let curr = this.head
+                    let ListValues = ''
+                    while (curr) {
+                        ListValues += `${curr.data}`
+                        curr = curr.next
+                    }
+                    // console.log(ListValues)
+                }
+            }
+            prepend(value) {
+                let node = new Node(value)
+                //  console.log(this.head)
+                if (this.head === null) {
+                    this.head = node
+                    this.tail = node
+                } else {
+                    // console.log(node)
+                    node.next = this.head
+                    this.head = node
+
+
+                }
+                this.size++
+
+            }
+
+            append(value) {
+                let node = new Node(value)
+                if (this.isEmpty()) {
+                    this.head = node
+                    this.tail = node
+                } else {
+                    this.tail.next = node
+                    this.tail = node
+                    this.size++
+                }
+
+            }
+            removeFront() {
+                if (this.isEmpty()) {
+                    return null
+                } else {
+                    let value = this.head.data
+                    this.head = this.head.next
+                    this.size--
+                }
+            }
+            removeFromBack() {
+                if (this.isEmpty()) {
+                    return null
+                }
+                const value = this.tail.data
+                if (this.size === 1) {
+                    this.head = null
+                    this.tail = null
+                }
+                else {
+                    let curr = this.head
+                    console.log(this.tail)
+                    while (curr.next !== this.tail) {
+                        // console.log(curr)
+                        curr = curr.next
+                    }
+                    // console.log(curr)
+                    curr.next = null
+                    this.tail = curr
+                    console.log(curr)
+                    this.size--
+                    return value
+
+                    // console.log(this.head)
+
+                }
+            }
+            // prepend(value) {
+            //     const node = new Node(value)
+            //     console.log(node)
+            //     if (this.head===null) {
+            //         this.head = node
+            //     } else {
+            //         node.next = this.head
+            //         this.head = node
+            //     }
+            //     this.size++
+            // }
+        }
+
+        const ll = new LinkedList()
+        ll.isEmpty()
+        // console.log(ll.isEmpty())
+        // console.log(ll.getSize())
+        ll.prepend(10)
+        ll.prepend(20)
+        // ll.prepend(30)
+        // ll.prepend(40)
+        ll.append(30)
+        ll.append(40)
+        ll.removeFront()
+        console.log(ll.removeFromBack())
+        console.log(ll)
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
