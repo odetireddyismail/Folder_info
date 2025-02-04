@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Website in Modal</title>
+  <style>
+    /* Basic Modal Styling */
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 80%;
+      height: 60%;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .popup-button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .popup-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Button to Trigger Modal -->
+  <button onclick="openModal()">Open Modal to Open Website</button>
+
+  <!-- Modal -->
+ <!-- Modal -->
+<div id="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Visit W3Schools</h2>
+    <button onclick="redirectToWebsite()">Go to W3Schools</button>
+  </div>
+</div>
+
+<script>
+  function redirectToWebsite() {
+    window.location.href = "https://www.w3schools.com"; // Redirect to W3Schools
+  }
+</script>
+
+
+  <script>
+    // Function to open the modal
+    function openModal() {
+      document.getElementById('modal').style.display = 'block';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    // Function to open website in popup
+    function openPopup() {
+      const url = "https://www.w3schools.com"; // Target URL to open
+      const width = 800;  // Set popup window width
+      const height = 600; // Set popup window height
+      const left = (screen.width - width) / 2; // Calculate center position horizontally
+      const top = (screen.height - height) / 2; // Calculate center position vertically
+
+      // Open the URL in a new popup window
+      const popupWindow = window.open(
+        url, 
+        "PopupWindow", 
+        `width=${width},height=${height},top=${top},left=${left}`
+      );
+
+      // Check if the popup is blocked and alert the user
+      if (!popupWindow || popupWindow.closed || typeof popupWindow.closed === 'undefined') {
+        alert("Popup blocked! Please enable popups for this website.");
+      }
+    }
+  </script>
+</body>
+</html>
